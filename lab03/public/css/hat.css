@@ -1,0 +1,25 @@
+.header_main {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-style: solid;
+    
+}
+
+.canvas {
+    border: 2px solid;
+    padding: 3px;
+    border-radius: 5px;
+    /* Image source https://thefamilydinnerproject.org/food/green-beans-with-lime/ */
+    background-image: url("/image/beans.jpg");
+    background-size: cover;
+}
+
+.canvas:hover {
+    border: 5px solid;
+    padding: 0px;
+    transition: .1s;
+}
+
+.canvas:active {
+    border-color:blue;
+    transition: .05s;
+}
