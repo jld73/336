@@ -1,0 +1,121 @@
+strong {
+    color: red;
+    font-size: 2em;
+}
+
+p {
+    font-family: Helvetica, sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: url("bkg.png")
+}
+
+/*.carrot { color: orange; }*/
+
+.spinach {
+    color: green;
+}
+
+.display-panel {
+    margin: 15px;
+    display: inline-block;
+}
+
+.display-panel>ol {
+    border: 10px solid teal;
+}
+
+.roman {
+    list-style: lower-roman;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.alpha {
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 2em;
+    counter-reset: n;
+}
+
+.alpha>li {
+    counter-increment: n;
+}
+
+.alpha>li::before {
+    content: "("counter(n, upper-alpha)") ";
+}
+
+#first {
+    font-style: italic;
+    display: inline-block;
+}
+
+#first::before {
+    content: url("pin.png");
+}
+
+#second {
+    display: inline-block;
+}
+
+#second::before {
+    content: url("pin.png");
+}
+
+table {
+    border: 2px solid green;
+    background: #efe;
+    font-family: Helvetica, sans-serif;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+th {
+    color: blue;
+    text-align: center;
+}
+
+th>.label {
+    text-align: right;
+    color: gray;
+    font-style: italic;
+    padding-right: 4px;
+}
+
+td {
+    border: 1px solid #7a7;
+    background: #cef;
+    margin: 0;
+    padding: 10px 4px 10px 46px;
+}
+
+tr.summary>td {
+    border: none;
+    background: #cee;
+}
+
+tr>:first-child {
+    border: none;
+    background: none;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+tr.summary>:first-child {
+    background: none;
+}
+
+caption {
+    caption-side: bottom;
+    font-style: italic;
+    text-align: right;
+}
