@@ -1,11 +1,13 @@
-6.1.a Chrome can be used to test GET, by simply navigating to the address. Technically, also POST, by creating a form using chrome dev tools and submitting it
+6.1.a Chrome can be used to test GET, by simply navigating to the address. Technically, you can also POST by creating a form using chrome dev tools and submitting it
     All methods could theoretically be tested with the javascript console, using ajax, though this is not particularly convinient.
     curl can test all methods by changing the method argument:
+    curl localhost:3000/request         (GET)
     curl -X POST localhost:3000/request -d '{"name": "al"}' -H 'Content-Type: application/json'
     curl -X PUT localhost:3000/request -d '{"name": "al"}' -H 'Content-Type: application/json'
+    curl -X DELETE localhost:3000/request -d '{"name": "al"}' -H 'Content-Type: application/json'
 
 6.1.b The most appropriate response would be a 404: not found
 
 6.2.a: GET and POST
 
-6.2.b The data is sent as X-url-encoded data, essentially key-value pairs.
+6.2.b The data is sent as X-url-encoded data, essentially key-value pairs. Special characters, like @, are sent as encoded values, like %40
