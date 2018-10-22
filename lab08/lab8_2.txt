@@ -1,0 +1,13 @@
+a
+    1. The fact that the rendering is not done with raw HTML, but rather with more abstract components is what makes react composable
+        This matters because working with raw HTML is messy, and difficult to maintain. 
+    2. JSX allows you to write HTML psuedocode into the javascript rather than having to use javascript to create the elements manually
+    3. React automatically escapes anything that might be rendered by the browser when displaying text, so code can be reflected
+    4. Comments are loaded by the ajax call, and are then passed down as data though the tree
+    5. Props is immutable and refers to data that should remain constant. State is mutable, and will cause the page to re-render if changed
+
+b
+    1. Removing comments works fine, adding comments works as long you give it a unique id. This happens because the data is just stored as json, any changes will be passed through the get method when it's called.
+    2. Because it changes the state. The framework will see this state change and will trigger the affected components to re-render automatically.
+    3. This means that you don't have to worry about falling out of sync, and you know that if the state ever changes, you don't need to worry about manually updating it.
+    4. If the comment is not successfully posted to the server for whatever reason, the ajax will call the error function, clearing the comment from the list. Thus, the optimistic update will only exist for a brief moment if rejected, but makes it feel more responsive when successful.
