@@ -7,7 +7,7 @@ $(document).ready(() => {
 
         $.ajax({
             type: 'POST',
-            url: '/person',
+            url: '/people',
             data: form.serialize(),
             dataType: 'json',
             success: function (resp) {
