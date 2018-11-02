@@ -1,0 +1,15 @@
+1
+a. The new bundle is significantly smaller than the original files due to it being minified, at only 3.4kb. It does still have to load the other files like libraries and css separately, though.
+b. Babel converts new JS stuff such as JSX and es2015 stuff into older, more compatible code.
+c. We can load it from the filesystem in a non-functional state; comments will not load since the routes are not defined.
+d. It tells it to load any jsx files
+
+2
+a. index is somewhat smaller since we moved some stuff out of it, and the bundle is much larger since it now contains everything
+b. Now everything is sent from our server, reducing external dependencies.
+c. None, since all of them are now included in our bundle.
+
+3
+a. The dev server (3001) will automatically reload the page whenever a file is changed, and the changes will be rebundled and sent, so that the changes are immediately visible
+    the default server on 3000 will not update with any edits made, even if reloaded manually. This is left running so that the api endpoint is accessible. long-term development will see accumulating time savings from the added convinience of
+b. Perhaps not for smaller projects, but any project that will require the dev server.
