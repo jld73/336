@@ -1,0 +1,10 @@
+1
+a. They are very different, though I would suspect that they are equally powerful, but are suited to different applications.
+    For example, I would guess that eiter one's commands could be rewritten in the other, but the length/complexity would potentially change drastically.
+b. The data would be stored locally on the machine the server is running on. This would mean that the data would not be backed up on the cloud, and could not be accessed by other services except through the server's api.
+c. Theoretically you could, though it would be a really bad idea. There is a limit on the amount of data that can be stored on a sandbox, so if you ever exceed that everything will grind to a halt.
+
+2
+a. I never tried running it with npm start, though it would have made things easier, since I had to manually restart the server each time or I would start getting strange connection errors.
+b. Modifying the data through the web interface works just the same as modifying it through the mongo shell, and quite similarly to doing it programatically. The data updates on the app as soon as it resends the call.
+c. Given that there is only one type of data being stored, a noSQL db makes sense, because the schema of an SQL db would not meaningfully contribute to the organization of the data.
