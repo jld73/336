@@ -1,0 +1,7 @@
+1
+a. The development environment is designed to be easily modifiable and simple to debug, whereas the production environment is designed to run efficiently
+b. The minification and uglification decrease the size of the bundle, allowing more efficient transfer
+
+2
+a. Deploying to a PaaS tool allows you to get the benefits of running the server on a separate machine without requiring you to set up the hardware and software manually
+b. The package.json file tells it how to install the necessary dependancies, and gives it the "start" command, which runs the server.
