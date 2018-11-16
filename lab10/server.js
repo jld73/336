@@ -78,7 +78,7 @@ MongoClient.connect('mongodb://cs336:' + process.env.MONGO_PASSWORD + '@ds155263
 
   db = client;
   app.listen(app.get('port'), function () {
-    console.log('Server started: http://localhost:' + app.get('port') + '/');
+    console.log('Server started: http://localhost:' + 3000 + '/');
   });
 })
 
