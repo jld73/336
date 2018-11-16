@@ -1,10 +1,10 @@
 
 
-var CommentBox = React.createClass({
+var PersonBox = React.createClass({
     getInitialState: function () {
         return { data: [] };
     },
-    loadCommentsFromServer: function () {
+    loadPersonsFromServer: function () {
         $.ajax({
             url: this.props.url,
             dataType: 'json',
@@ -17,66 +17,66 @@ var CommentBox = React.createClass({
             }.bind(this)
         });
     },
-    handleCommentSubmit: function (comment) {
-        console.log(JSON.stringify(comment))
-        var comments = this.state.data;
-        var newComments = comments.concat([comment]);
-        this.setState({ data: newComments });
+    handlePersonSubmit: function (person) {
+        console.log(JSON.stringify(person))
+        var persons = this.state.data;
+        var newPersons = persons.concat([person]);
+        this.setState({ data: newPersons });
         $.ajax({
             url: this.props.url,
             dataType: 'json',
             type: 'POST',
-            data: comment,
+            data: person,
             done: function (data) {
                 this.setState({ data: data });
                 console.log("Does the success happen?")
             }.bind(this),
             fail: function (xhr, status, err) {
-                //this.setState({data: comments});
+                //this.setState({data: persons});
                 console.error(xhr);
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     },
     componentDidMount: function () {
-        this.loadCommentsFromServer();
-        setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+        this.loadPersonsFromServer();
+        setInterval(this.loadPersonsFromServer, this.props.pollInterval);
     },
     render: function () {
         return (
-            <div className="commentBox">
+            <div className="personBox">
                 <h1>People</h1>
-                <CommentList data={this.state.data} />
-                <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+                <PersonList data={this.state.data} />
+                <PersonForm onPersonSubmit={this.handlePersonSubmit} />
             </div>
         );
     }
 });
-var CommentList = React.createClass({
+var PersonList = React.createClass({
     render: function () {
         var data = this.props.data
-        var commentNodes = Object.keys(data).map(function (key, index) {
-            let comment = data[key];
+        var personNodes = Object.keys(data).map(function (key, index) {
+            let person = data[key];
             return (
-                <Comment fname={comment.fname} lname={comment.lname} start={comment.start}  id={comment.id} key={comment.id}>
-                    {comment.text}
-                </Comment>
+                <Person fname={person.fname} lname={person.lname} start={person.start}  id={person.id} key={person.id}>
+                    {person.text}
+                </Person>
             );
         });
         return (
-            <div className="commentList">
-                {commentNodes}
+            <div className="personList">
+                {personNodes}
             </div>
         );
     }
 });
 
-var CommentForm = React.createClass({
+var PersonForm = React.createClass({
     getInitialState: function () {
-        return { author: '', lname: '', fname: '', date: '' };
+        return { idstr: '', lname: '', fname: '', date: '' };
     },
-    handleAuthorChange: function (e) {
-        this.setState({ author: e.target.value });
+    handleIdstrChange: function (e) {
+        this.setState({ idstr: e.target.value });
     },
     handleFChange: function (e) {
         this.setState({ fname: e.target.value });
@@ -89,25 +89,25 @@ var CommentForm = React.createClass({
     },
     handleSubmit: function (e) {
         e.preventDefault();
-        var author = this.state.author.trim();
+        var idstr = this.state.idstr.trim();
         var fname = this.state.fname.trim();
         var lname = this.state.lname.trim();
         var date = this.state.date.trim();
         
-        if (!fname || !author || !date || !lname) {
+        if (!fname || !idstr || !date || !lname) {
             return;
         }
-        this.props.onCommentSubmit({ id: author, fname: fname, lname: lname, start: date });
-        this.setState({ author: '', lname: '', fname: '', date: '' });
+        this.props.onPersonSubmit({ id: idstr, fname: fname, lname: lname, start: date });
+        this.setState({ idstr: '', lname: '', fname: '', date: '' });
     },
     render: function () {
         return (
-            <form className="commentForm" onSubmit={this.handleSubmit}>
+            <form className="personForm" onSubmit={this.handleSubmit}>
                 <input
                     type="text"
                     placeholder="ID"
-                    value={this.state.author}
-                    onChange={this.handleAuthorChange}
+                    value={this.state.idstr}
+                    onChange={this.handleIdstrChange}
                 />
                 <input
                     type="text"
@@ -132,7 +132,7 @@ var CommentForm = React.createClass({
         );
     }
 });
-var Comment = React.createClass({
+var Person = React.createClass({
 
     rawMarkup: function () {
         var md = new Remarkable();
@@ -141,8 +141,8 @@ var Comment = React.createClass({
     },
     render: function () {
         return (
-            <div className="comment">
-                <h2 className="commentAuthor">
+            <div className="person">
+                <h2 className="personIdstr">
                     {this.props.id}
                 </h2>
                 <p> {this.props.fname} </p>
@@ -153,6 +153,6 @@ var Comment = React.createClass({
     }
 });
 ReactDOM.render(
-    <CommentBox url="/people" pollInterval={2000} />,
+    <PersonBox url="/people" pollInterval={2000} />,
     document.getElementById('content')
 );
