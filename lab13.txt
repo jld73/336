@@ -1,9 +1,11 @@
 1
 a. not much, at least not yet. The app still works basically as before, since we don't have any other pages to navigate.
 b. Browser history looks better on the user's end, but hash history is more compatible.
-c. Because the browser's back button will normally navigate to a different page, so we need to tell it to do something else since we have an SPA
-        The hash based method passes the information along with the URL, 
+c. Because we want the way that the browser navigates with the back button to match the structure of the url, while the hash method just adds the information to the end, so we don't care about its structure.
 
 2
-a. Deploying to a PaaS tool allows you to get the benefits of running the server on a separate machine without requiring you to set up the hardware and software manually
-b. The package.json file tells it how to install the necessary dependancies, and gives it the "start" command, which runs the server.
+a. CommentEdit stores the author and text of the current comment as state. The commentBox, on the other hand, stores the data for all the comments.
+b. When the method returns it sends the user back to the root. The cancel button is just a link to the root, so it does basically the same thing.
+c. Rather than sending a http request to the URL specified, it makes an internal request to react.
+
+https://jld73-lab11.herokuapp.com/
