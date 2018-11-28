@@ -1,0 +1,9 @@
+1
+a. not much, at least not yet. The app still works basically as before, since we don't have any other pages to navigate.
+b. Browser history looks better on the user's end, but hash history is more compatible.
+c. Because the browser's back button will normally navigate to a different page, so we need to tell it to do something else since we have an SPA
+        The hash based method passes the information along with the URL, 
+
+2
+a. Deploying to a PaaS tool allows you to get the benefits of running the server on a separate machine without requiring you to set up the hardware and software manually
+b. The package.json file tells it how to install the necessary dependancies, and gives it the "start" command, which runs the server.
